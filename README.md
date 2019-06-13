@@ -1,5 +1,7 @@
 # St. John's Summertime Showdown
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/86774349-080a-4e1c-afce-41693eda3240/deploy-status)](https://app.netlify.com/sites/csb-ws540/deploys)
+
 ## Rules
 
 ### Who wins?
