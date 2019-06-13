@@ -64,8 +64,8 @@ const ScavengerHunt = () => {
           </p>
           <p class="claimed">
             <small>
-              Claimed by: Carmen (+token, +bandana), Makenzie (+token,
-              +bandana), and Sam
+              Claimed by: Carmen (+token, +mascot), Makenzie (+token,
+              +mascot), and Sam
             </small>
           </p>
         </li>
@@ -90,8 +90,8 @@ const ScavengerHunt = () => {
           </p>
           <p class="claimed">
             <small>
-              Claimed by: Joan (+token, +bandana), Annabelle (+token,
-              +bandana), and Nathan
+              Claimed by: Joan (+token, +mascot), Annabelle (+token,
+              +mascot), and Nathan (+token, +mascot)
             </small>
           </p>
         </li>
