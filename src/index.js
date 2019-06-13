@@ -2,9 +2,9 @@ import React from "react"
 import ReactDOM from "react-dom"
 
 import Content from "./content"
-import Footer from "./footer"
+import Footer from "./content/footer"
 
-import "./styles.scss"
+import "./styles/main.scss"
 
 function App() {
   return (

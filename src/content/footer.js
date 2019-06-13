@@ -1,6 +1,6 @@
 import React from "react"
 
-import "./emoji.scss"
+import "../styles/emoji.scss"
 
 const Footer = () => {
   return (
@@ -9,10 +9,10 @@ const Footer = () => {
         href="https://acupajoe.io?referrer=st-johns-leaderboard"
         target="_blank"
         rel="noopener noreferrer">
-        Made by <i class="twa twa-pray twa-lg" />
+        Made by <i className="twa twa-pray twa-lg" />
         ,&nbsp;
-        <i class="twa twa-coffee twa-lg" /> and&nbsp;
-        <i class="twa twa-sunny twa-lg" />.<br /> Joseph Schultz :{" "}
+        <i className="twa twa-coffee twa-lg" /> and&nbsp;
+        <i className="twa twa-sunny twa-lg" />.<br /> Joseph Schultz :{" "}
         {new Date().getFullYear()}.
       </a>
     </footer>

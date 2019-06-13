@@ -51,7 +51,7 @@ const ScavengerHunt = () => {
       <h3>Clues</h3>
       <ol>
         <li>
-          <p class="strikethrough">
+          <p className="strikethrough">
             Now seen as monumental,
             <br />I was first a pest.
             <br />
@@ -62,15 +62,15 @@ const ScavengerHunt = () => {
             <small>Bounty: [20, 10, 8]</small>
             <br />
           </p>
-          <p class="claimed">
+          <p className="claimed">
             <small>
-              Claimed by: Carmen (+token, +mascot), Makenzie (+token,
-              +mascot), and Sam
+              Claimed by: Carmen (+token, +mascot), Makenzie (+token, +mascot),
+              and Sam
             </small>
           </p>
         </li>
         <li>
-          <p class="strikethrough">
+          <p className="strikethrough">
             The lines move quick
             <br />
             but you need to pick
@@ -88,10 +88,10 @@ const ScavengerHunt = () => {
             <br />
             <small>Bounty: [20, 10, 8]</small>
           </p>
-          <p class="claimed">
+          <p className="claimed">
             <small>
-              Claimed by: Joan (+token, +mascot), Annabelle (+token,
-              +mascot), and Nathan (+token, +mascot)
+              Claimed by: Joan (+token, +mascot), Annabelle (+token, +mascot),
+              and Nathan (+token, +mascot)
             </small>
           </p>
         </li>
