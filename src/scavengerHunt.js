@@ -70,7 +70,7 @@ const ScavengerHunt = () => {
           </p>
         </li>
         <li>
-          <p>
+          <p class="strikethrough">
             The lines move quick
             <br />
             but you need to pick
@@ -87,6 +87,12 @@ const ScavengerHunt = () => {
             I am Georgia, in a cup.
             <br />
             <small>Bounty: [20, 10, 8]</small>
+          </p>
+          <p class="claimed">
+            <small>
+              Claimed by: Joan (+token, +bandana), Annabelle (+token,
+              +bandana), and Nathan
+            </small>
           </p>
         </li>
         <li>...</li>
