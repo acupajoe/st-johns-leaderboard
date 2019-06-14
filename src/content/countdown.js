@@ -20,7 +20,7 @@ const toHHMMSS = str => {
 export default class Countdown extends React.Component {
   constructor(props) {
     super(props)
-    this.endDate = moment("July 31, 2019 22:59:59 CST")
+    this.endDate = moment("Wed, 31 Jul 19 23:59:59 -0500")
     this.state = {
       parsed: { days: "00", hours: "00", minutes: "00", seconds: "00" }
     }

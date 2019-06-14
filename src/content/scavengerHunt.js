@@ -95,6 +95,36 @@ const ScavengerHunt = () => {
             </small>
           </p>
         </li>
+        <li>
+          <p>
+            <em>
+              This clue must be submitted through email or DM on Instagram. DO
+              NOT POST A PICTURE OF YOUR ANSWER.
+            </em>
+          </p>
+          <p>
+            Ciphers are used everyday
+            <br />
+            passing messages in secret
+            <br />
+            hidden away.
+            <br />
+            <br />
+            The answer you seek
+            <br />
+            requires a key,
+            <br />
+            The substitution of bib le.
+            <br />
+            <br /> HOFN 6:9 NBIRA <br />
+            "Fumbnjgne," gt sbys, crom tfa cgrst iooj, cgne tfa lfbptar bne
+            varsa usgnd tfa kobvas bne cgsfas.
+            <br />
+            <br />
+            <small>Bounty: [40, 30, 15]</small>
+          </p>
+        </li>
+        <li>...</li>
         <li>...</li>
       </ol>
     </div>
