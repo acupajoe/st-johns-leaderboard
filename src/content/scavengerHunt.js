@@ -102,6 +102,7 @@ const ScavengerHunt = () => {
               NOT POST A PICTURE OF YOUR ANSWER.
             </em>
           </p>
+          <hr />
           <p className="strikethrough">
             Ciphers are used everyday
             <br />
@@ -127,7 +128,44 @@ const ScavengerHunt = () => {
             <small>Claimed by: MacKenzie, Claire, and Annabelle</small>
           </p>
         </li>
-        <li>...</li>
+        <li>
+          <p>
+            <em>
+              This clue requires at least 3 participants to count as a valid
+              submission. Each participant will receive the bounty listed below,
+              regardless of team.
+              <br />
+              An extra 5 points per participant if all are on the same team.
+              <br />
+              <br />
+              Plan accordingly.
+            </em>
+          </p>
+          <hr />
+          <p>
+            They call me a "bird"
+            <br />
+            but I no longer fly
+            <br />
+            I'm made of metal
+            <br />
+            and many pass me by.
+            <br />
+            <br />
+            Through rain or shine,
+            <br />
+            sleet or hail
+            <br />I won't move an inch or nail.
+            <br />
+            <br />
+            You'll find me off main and neal,
+            <br />
+            bring a friend and share a meal.
+            <br />
+            <br />
+            <small>Bounty: [15, 10, 8] (per person)</small>
+          </p>
+        </li>
         <li>...</li>
       </ol>
     </div>
