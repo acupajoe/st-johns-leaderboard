@@ -22,6 +22,7 @@ export const getTeamWithPoints = async () => {
   const response = await axios.get(PARTICIPANTS_URL)
   for (const participant of response.data) {
     for (const point of participant.points) {
+      if (!participant.team || !participant.team.id) continue;
       teamsById[participant.team.id].totalPoints += point.value
       teamsById[participant.team.id].points.push(point)
     }

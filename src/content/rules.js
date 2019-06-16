@@ -33,7 +33,7 @@ const Rules = () => {
           awarded by member, not by team)
         </li>
         <li>
-          5 pts. per picture with mascot outside of church property using
+          6 pts. per picture with mascot outside of church property using
           #stjohnssummertimeshowdown on Instagram or emailed to&nbsp;
           <a href="mailto:showdown@light-heart.org">showdown@light-heart.org</a>
           <ul className="normal">
