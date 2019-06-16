@@ -96,13 +96,13 @@ const ScavengerHunt = () => {
           </p>
         </li>
         <li>
-          <p>
+          <p className="strikethrough">
             <em>
               This clue must be submitted through email or DM on Instagram. DO
               NOT POST A PICTURE OF YOUR ANSWER.
             </em>
           </p>
-          <p>
+          <p className="strikethrough">
             Ciphers are used everyday
             <br />
             passing messages in secret
@@ -122,6 +122,9 @@ const ScavengerHunt = () => {
             <br />
             <br />
             <small>Bounty: [40, 30, 15]</small>
+          </p>
+          <p className="claimed">
+            <small>Claimed by: MacKenzie, Claire, and Annabelle</small>
           </p>
         </li>
         <li>...</li>
