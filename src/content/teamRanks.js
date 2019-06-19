@@ -1,4 +1,5 @@
 import React from "react"
+import { GlobalContext } from "../globalContext"
 import { getTeamWithPoints } from "../api"
 import Timer from "../timer"
 
@@ -6,8 +7,7 @@ class TeamRanks extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isLoading: true,
-      teams: []
+      isLoading: true
     }
   }
 
@@ -24,13 +24,14 @@ class TeamRanks extends React.Component {
     this.setState({ ...this.state, isLoading: true })
     let teams = await getTeamWithPoints()
     teams.sort((a, b) => b.totalPoints - a.totalPoints)
-    this.setState({ ...this.state, isLoading: false, teams })
+    this.context.setTeams(teams)
+    this.setState({ ...this.state, isLoading: false })
   }
 
   renderTeams() {
     const result = []
     let count = 1
-    for (const team of this.state.teams) {
+    for (const team of this.context.teams) {
       const item = (
         <li className="team" key={team.name}>
           <label>
@@ -59,7 +60,7 @@ class TeamRanks extends React.Component {
 
   render() {
     return (
-      <div className="team-ranks">
+      <div className="ranks team-ranks">
         <h3>Team Ranks</h3>
         <div className="teams">
           {!this.state.isLoading && this.renderTeams()}
@@ -70,4 +71,5 @@ class TeamRanks extends React.Component {
   }
 }
 
+TeamRanks.contextType = GlobalContext
 export default TeamRanks

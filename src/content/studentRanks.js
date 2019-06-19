@@ -1,4 +1,5 @@
 import React from "react"
+import { GlobalContext } from "../globalContext"
 
 import Timer from "../timer"
 import { getParticipants } from "../api"
@@ -7,8 +8,7 @@ class StudentRanks extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isLoading: true,
-      participants: []
+      isLoading: true
     }
   }
 
@@ -25,7 +25,8 @@ class StudentRanks extends React.Component {
     this.setState({ ...this.state, isLoading: true })
     let participants = await getParticipants()
     participants.sort((a, b) => b.totalPoints - a.totalPoints)
-    this.setState({ ...this.state, isLoading: false, participants })
+    this.context.setParticipants(participants)
+    this.setState({ ...this.state, isLoading: false })
   }
 
   renderPlaceholders() {
@@ -43,7 +44,7 @@ class StudentRanks extends React.Component {
   renderStudents() {
     const result = []
     let count = 1
-    for (const participant of this.state.participants) {
+    for (const participant of this.context.participants) {
       if (count > 5) break
       const item = (
         <li className="team" key={participant.id}>
@@ -64,7 +65,7 @@ class StudentRanks extends React.Component {
 
   render() {
     return (
-      <div className="student-ranks">
+      <div className="ranks student-ranks">
         <h3>Top 5 Ranked Students</h3>
         <div className="teams">
           {!this.state.isLoading && this.renderStudents()}
@@ -75,4 +76,5 @@ class StudentRanks extends React.Component {
   }
 }
 
+StudentRanks.contextType = GlobalContext
 export default StudentRanks

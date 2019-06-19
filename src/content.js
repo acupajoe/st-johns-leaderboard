@@ -1,8 +1,9 @@
 import React from "react"
 
 import Countdown from "./content/countdown"
-import TeamRanks from "./content/team-ranks"
-import StudentRanks from "./content/student-ranks"
+import SearchBar from "./content/searchBar"
+import TeamRanks from "./content/teamRanks"
+import StudentRanks from "./content/studentRanks"
 import RefreshTimer from "./content/refreshTimer"
 import Rules from "./content/rules"
 import ScavengerHunt from "./content/scavengerHunt"
@@ -15,7 +16,7 @@ const Content = () => {
         <h1>Summertime Showdown</h1>
         <Countdown />
       </header>
-      <hr />
+      <SearchBar />
       <TeamRanks />
       <hr />
       <StudentRanks />

@@ -71,62 +71,62 @@ small {
 }
 
 .container {
-  
-
-  ul:not(.normal) {
-    text-align: left;
-    margin-left: 0;
-    padding: 0;
-    li {
-      margin: 10px 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      background: lighten($primary-background-color, 5%);
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 1em;
-      transition: border 0.15s ease-in-out, background 0.15s ease-in-out;
-      border: 3px solid lighten($primary-background-color, 10%);
-      &:hover {
-        background: lighten($primary-background-color, 10%);
-        border-color: lighten($primary-background-color, 20%);
-       }
-      &:first-child {
-        background: $highlight-color;
-        border: 4px solid lighten($highlight-color, 10%);
-        label {
-          text-shadow: 0 0 3px $primary-background-color;
-        }
+  .ranks {
+    ul:not(.normal) {
+      text-align: left;
+      margin-left: 0;
+      padding: 0;
+      li {
+        margin: 10px 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        background: lighten($primary-background-color, 5%);
+        padding: 10px;
+        border-radius: 8px;
+        font-size: 1em;
+        transition: border 0.15s ease-in-out, background 0.15s ease-in-out;
+        border: 3px solid lighten($primary-background-color, 10%);
         &:hover {
-          background: darken($highlight-color, 5%);
-        }
-      }
-      &.placeholder {
-        height: 24px;
-        opacity: 0.2;
-        animation-name: opacityTransform;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
-        animation-duration: 2.5s;
-        &:first-child {
-          background: lighten($primary-background-color, 5%);
-          border: 3px solid lighten($primary-background-color, 10%);
-        }
-        &:nth-child(2) {
-          animation-delay: 0.5s;
-        }
-        &:nth-child(3) {
-          animation-delay: 1s;
-        }
-
-        @keyframes opacityTransform {
-          0%, 100% {
-            opacity: 0.2;
+          background: lighten($primary-background-color, 10%);
+          border-color: lighten($primary-background-color, 20%);
           }
-        50% {
-            opacity: 0.8;
+        &:first-child {
+          background: $highlight-color;
+          border: 4px solid lighten($highlight-color, 10%);
+          label {
+            text-shadow: 0 0 3px $primary-background-color;
+          }
+          &:hover {
+            background: darken($highlight-color, 5%);
+          }
+        }
+        &.placeholder {
+          height: 24px;
+          opacity: 0.2;
+          animation-name: opacityTransform;
+          animation-iteration-count: infinite;
+          animation-timing-function: ease-in-out;
+          animation-duration: 2.5s;
+          &:first-child {
+            background: lighten($primary-background-color, 5%);
+            border: 3px solid lighten($primary-background-color, 10%);
+          }
+          &:nth-child(2) {
+            animation-delay: 0.5s;
+          }
+          &:nth-child(3) {
+            animation-delay: 1s;
+          }
+
+          @keyframes opacityTransform {
+            0%, 100% {
+              opacity: 0.2;
+            }
+          50% {
+              opacity: 0.8;
+            }
           }
         }
       }
@@ -151,6 +151,61 @@ small {
     word-break: break-word;
     small {
       padding: 0 10px;
+    }
+  }
+
+  .searchbar {
+    position: relative;
+    margin: 30px 0;
+
+    input {
+      font-family: 'Oxygen Mono', sans-serif;
+      display: block;
+      margin: 0 auto;
+      width:100%;
+      font-size: 1rem;
+      max-width: 300px;
+      height: 42px;
+      border-radius: 10px 10px 0 0;
+      border: none;
+      border-bottom: 2px solid $secondary-background-color;
+      padding: 0 10px;
+      color: $primary-text-color;
+      text-align: center;
+      background: rgba($primary-text-color, 0);
+      transition: background 0.25s ease-in-out;
+
+      &:hover, &:focus, &:active {
+        background: rgba($primary-text-color, 0.5);
+        border-bottom: 2px solid $secondary-background-color;
+        box-shadow: none;
+        outline: none;
+      }
+
+      &::placeholder {
+        color: rgba($primary-text-color, 0.8);
+      }
+    }
+
+    .results {
+      position: absolute;
+      display: block;
+      top: 42px;
+      left: 0;
+      right: 0;
+      height: auto;
+      padding: 0 10px;
+      margin: 0 auto;
+      max-width: 300px;
+      background: darken($secondary-background-color, 10%);
+      border-radius: 0 0 10px 10px;
+      z-index: 1000;
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 15px 10px;
+      }
     }
   }
 }
