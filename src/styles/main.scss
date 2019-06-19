@@ -161,6 +161,7 @@ small {
     input {
       font-family: 'Oxygen Mono', sans-serif;
       display: block;
+      box-sizing: border-box;
       margin: 0 auto;
       width:100%;
       font-size: 1rem;
@@ -190,6 +191,7 @@ small {
     .results {
       position: absolute;
       display: block;
+      box-sizing: border-box;
       top: 42px;
       left: 0;
       right: 0;
