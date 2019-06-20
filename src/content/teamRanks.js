@@ -1,39 +1,17 @@
 import React from "react"
 import { GlobalContext } from "../globalContext"
-import { getTeamWithPoints } from "../api"
-import Timer from "../timer"
 
 class TeamRanks extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isLoading: true
-    }
-  }
-
-  componentDidMount() {
-    this.refresh()
-    Timer.addRefreshListener(this.refresh, this)
-  }
-
-  componentWillUnmount() {
-    Timer.removeRefreshListener(this.refresh)
-  }
-
-  async refresh() {
-    this.setState({ ...this.state, isLoading: true })
-    let teams = await getTeamWithPoints()
-    teams.sort((a, b) => b.totalPoints - a.totalPoints)
-    this.context.setTeams(teams)
-    this.setState({ ...this.state, isLoading: false })
-  }
-
   renderTeams() {
     const result = []
     let count = 1
-    for (const team of this.context.teams) {
+    const teams = Object.values(this.context.teams).sort(
+      (a, b) => b.data().totalPoints - a.data().totalPoints
+    )
+    for (const doc of teams) {
+      const team = doc.data()
       const item = (
-        <li className="team" key={team.name}>
+        <li className="team" key={doc.id}>
           <label>
             {count}. {team.name} ({team.totalPoints} pts)
           </label>
@@ -63,8 +41,8 @@ class TeamRanks extends React.Component {
       <div className="ranks team-ranks">
         <h3>Team Ranks</h3>
         <div className="teams">
-          {!this.state.isLoading && this.renderTeams()}
-          {this.state.isLoading && this.renderPlaceholders()}
+          {!this.context.isLoading && this.renderTeams()}
+          {this.context.isLoading && this.renderPlaceholders()}
         </div>
       </div>
     )

@@ -13,20 +13,23 @@ class SearchBar extends React.Component {
 
   renderResults() {
     if (!this.state.isFocused || this.state.query.length < 3) return null
+
     const results = []
-    for (const participant of this.context.participants) {
-      if (
-        participant.fullName
-          .toLowerCase()
-          .includes(this.state.query.toLowerCase())
-      ) {
-        results.push(
-          <li>
-            {participant.fullName} ({participant.totalPoints} pts)
-          </li>
-        )
-      }
+    const found = Object.values(this.context.participants).filter(p =>
+      p
+        .data()
+        .fullName.toLowerCase()
+        .includes(this.state.query.toLowerCase())
+    )
+    for (const doc of found) {
+      const participant = doc.data()
+      results.push(
+        <li key={doc.id}>
+          {participant.fullName} ({participant.totalPoints} pts)
+        </li>
+      )
     }
+
     return (
       <div className="results">
         <ul>{results.length ? results : <li>No results.</li>}</ul>
@@ -46,6 +49,7 @@ class SearchBar extends React.Component {
           name="search"
           type="text"
           placeholder="What's my score?"
+          disabled={Object.keys(this.context.participants).length === 0}
           onBlur={this.handleSearchBlur}
           onFocus={this.handleSearchFocus}
           onKeyUp={this.handleSearchKeyUp}

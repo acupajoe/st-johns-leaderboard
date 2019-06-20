@@ -4,7 +4,6 @@ import Countdown from "./content/countdown"
 import SearchBar from "./content/searchBar"
 import TeamRanks from "./content/teamRanks"
 import StudentRanks from "./content/studentRanks"
-import RefreshTimer from "./content/refreshTimer"
 import Rules from "./content/rules"
 import ScavengerHunt from "./content/scavengerHunt"
 
@@ -20,7 +19,6 @@ const Content = () => {
       <TeamRanks />
       <hr />
       <StudentRanks />
-      <RefreshTimer />
       <hr />
       <Rules />
       <hr />
