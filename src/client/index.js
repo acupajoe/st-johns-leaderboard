@@ -6,6 +6,7 @@ import TeamRanks from "./components/teamRanks"
 import StudentRanks from "./components/studentRanks"
 import Rules from "./components/rules"
 import ScavengerHunt from "./components/scavengerHunt"
+import Footer from "./components/footer"
 
 import "./styles/main.scss"
 
@@ -26,6 +27,7 @@ const Content = () => {
       <hr />
       <ScavengerHunt />
       <hr />
+      <Footer />
     </div>
   )
 }
