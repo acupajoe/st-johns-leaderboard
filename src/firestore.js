@@ -4,7 +4,7 @@ import "firebase/auth"
 import "firebase/firestore"
 
 firebase.initializeApp({
-  apiKey: process.env.REACT_APP_FIREABSE_API_KEY,
+  apiKey: "AIzaSyDBHex6C7tXKZEI6uGpj8K3a3UsMq4p5KA",
   authDomain: "leaderboard-us.firebaseapp.com",
   databaseURL: "https://leaderboard-us.firebaseio.com",
   projectId: "leaderboard-us",
