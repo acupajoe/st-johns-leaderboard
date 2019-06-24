@@ -129,7 +129,7 @@ const ScavengerHunt = () => {
           </p>
         </li>
         <li>
-          <p>
+          <p className="strikethrough">
             <em>
               This clue requires at least 3 participants to count as a valid
               submission. Each participant will receive the bounty listed below,
@@ -142,7 +142,7 @@ const ScavengerHunt = () => {
             </em>
           </p>
           <hr />
-          <p>
+          <p className="strikethrough">
             They call me a "bird"
             <br />
             but I no longer fly
@@ -165,8 +165,53 @@ const ScavengerHunt = () => {
             <br />
             <small>Bounty: [15, 10, 8] (per person)</small>
           </p>
+          <p className="claimed">
+            <small>
+              Claimed By: Joan, Mackenzie, Natalie, Nathan, and Carmen
+            </small>
+          </p>
         </li>
-        <li>...</li>
+        <li>
+          <p className="strikethrough">
+            If John the baptist was still around
+            <br />
+            That is the place he would be found
+            <br />
+            Untamed and Unbound
+            <br />
+            I'm a local place buzzing with sound.
+            <br />
+            <br />
+            <br />
+            Take a picture here
+            <br />
+            <br />
+            <small>Bounty: [15, 10, 8]</small>
+          </p>
+          <p className="claimed">
+            <small>Claimed by: Annabelle, Lucas, and Mackenzie</small>
+          </p>
+        </li>
+        <li>
+          <p>
+            Like mother and babe
+            <br />
+            so I am to bees
+            <br />
+            I make honey
+            <br />
+            but am found on trees.
+            <br />
+            <br />
+            <small>
+              Bounty: 15 pts, brought on Wednesday, only one answer will be
+              accepted.
+            </small>
+          </p>
+          <p className="claimed">
+            <small>Claimed by:</small>
+          </p>
+        </li>
       </ol>
     </div>
   )

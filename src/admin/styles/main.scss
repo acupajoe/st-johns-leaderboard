@@ -1,0 +1,175 @@
+$primary-background-color: #1d2731;
+$secondary-background-color: #0b3c5d;
+$tertiary-background-color: #328cc1;
+$highlight-color: #d9b310;
+$primary-text-color: #ffffff;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: $primary-background-color;
+  color: $primary-text-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+  color: $primary-text-color;
+}
+
+.App {
+  font-family: sans-serif;
+  max-width: 100%;
+}
+
+.Admin {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  nav {
+    a {
+      margin: 0 15px;
+    }
+  }
+
+  .Points,
+  .Participants {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    flex-wrap: wrap;
+
+    .results {
+      margin-top: 35px;
+      background: transparent;
+      tbody tr:nth-child(2n - 1) {
+        background-color: $secondary-background-color;
+      }
+      tr td {
+        text-align: left;
+        padding: 4px;
+
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+button.auth {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: $primary-text-color;
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+form.add-point,
+form.add-participant,
+form.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  input,
+  select {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 200px;
+    margin: 5px 0;
+    height: 32px;
+    border-radius: 5px;
+    box-shadow: none;
+    border: 1px solid $secondary-background-color;
+    padding: 5px;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+
+  &.fullscreen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 51px;
+    height: 51px;
+    margin: 6px;
+    border: 6px solid #fff;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+
+    &:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+
+    @keyframes lds-ring {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}
+
+.btn {
+  height: 32px;
+  border-radius: 5px;
+  margin: 15px;
+  min-width: 200px;
+  color: $secondary-background-color;
+  background: $highlight-color;
+  box-shadow: none;
+  border: 2px solid darken($primary-text-color, 10%);
+  font-weight: bold;
+  transition: background 0.15s ease-in-out, color 0.15s ease-in-out;
+  &:hover,
+  &:active {
+    background: $secondary-background-color;
+    color: $primary-text-color;
+    cursor: pointer;
+  }
+}

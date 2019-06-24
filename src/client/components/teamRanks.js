@@ -1,5 +1,5 @@
 import React from "react"
-import { GlobalContext } from "../globalContext"
+import { FirebaseContext } from "../../firestore"
 
 class TeamRanks extends React.Component {
   renderTeams() {
@@ -49,5 +49,5 @@ class TeamRanks extends React.Component {
   }
 }
 
-TeamRanks.contextType = GlobalContext
+TeamRanks.contextType = FirebaseContext
 export default TeamRanks

@@ -1,6 +1,5 @@
 import React from "react"
-
-import { GlobalContext } from "../globalContext"
+import { FirebaseContext } from "../../firestore"
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -60,5 +59,5 @@ class SearchBar extends React.Component {
   }
 }
 
-SearchBar.contextType = GlobalContext
+SearchBar.contextType = FirebaseContext
 export default SearchBar

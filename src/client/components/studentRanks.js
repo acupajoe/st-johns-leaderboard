@@ -1,7 +1,6 @@
 import React from "react"
-import { GlobalContext } from "../globalContext"
 
-import Timer from "../timer"
+import { FirebaseContext } from "../../firestore"
 
 class StudentRanks extends React.Component {
   renderPlaceholders() {
@@ -60,5 +59,5 @@ class StudentRanks extends React.Component {
   }
 }
 
-StudentRanks.contextType = GlobalContext
+StudentRanks.contextType = FirebaseContext
 export default StudentRanks

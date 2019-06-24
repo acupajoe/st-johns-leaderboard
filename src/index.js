@@ -1,10 +1,19 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import { GlobalContext } from "./globalContext"
-import { InstanceCollection, TeamsCollection, PointsCollection } from "./db"
+import { BrowserRouter as Router, Route } from "react-router-dom"
 
-import Content from "./content"
-import Footer from "./content/footer"
+import {
+  FirebaseContext,
+  createTeamsListener,
+  createInstanceListener,
+  createPointsListener,
+  createParticipantListener
+} from "./firestore"
+
+import Loader from "./components/loader"
+import Client from "./client"
+import Points from "./admin/components/points"
+import Participants from "./admin/components/participants"
 
 import "./styles/main.scss"
 
@@ -13,142 +22,129 @@ class App extends React.Component {
     super(props)
     this.listeners = []
     this.state = {
-      isLoading: true,
-      instance: {},
-      teams: {},
-      participants: {},
-      points: {}
+      isLoading: false,
+      firebase: {
+        instance: {},
+        teams: {},
+        participants: {},
+        points: {}
+      }
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.registerListeners()
   }
 
   componentWillUnmount() {
-    this.unregisterListeners()
+    this.deregisterListeners()
+  }
+
+  deregisterListeners = () => {
+    for (const listener of this.listeners) {
+      listener()
+    }
+    this.listeners = []
   }
 
   registerListeners = async () => {
     this.setState({ ...this.state, isLoading: true })
-    await this.setInstance()
-    this.registerInstanceListener()
-    await this.registerTeamsListener()
-    await this.registerPointsListener()
-    await this.setParticipants()
+    this.deregisterListeners()
+    const instanceListener = await createInstanceListener(
+      `leaderboard.light-heart.org`,
+      this.handleInstanceSnapshot.bind(this)
+    )
+    const teamsListener = await createTeamsListener(
+      this.state.firebase.instance.id,
+      this.handleTeamsSnapshot.bind(this)
+    )
+
+    await this.createParticipantListeners()
+
+    const pointsListener = await createPointsListener(
+      this.state.firebase.instance.id,
+      this.handlePointsSnapshot.bind(this)
+    )
+
+    for (const listener of [instanceListener, teamsListener, pointsListener])
+      this.listeners.push(listener)
+
     this.setState({ ...this.state, isLoading: false })
   }
 
-  setInstance = async () => {
-    const instances = await InstanceCollection.where(
-      "domain",
-      "==",
-      "leaderboard.light-heart.org"
-    ).get()
-
-    if (instances.empty) {
-      console.error(`Unable to find registered instance. No data available.`)
-      return
+  createParticipantListeners = async () => {
+    const listeners = []
+    for (const team of Object.values(this.state.firebase.teams)) {
+      const listener = await createParticipantListener(
+        team.id,
+        this.handleParticipantsSnapshot.bind(this)
+      )
+      listeners.push(listener)
     }
-
-    this.setState({
-      ...this.state,
-      instance: instances.docs[0]
-    })
-  }
-  registerInstanceListener = async () => {
-    const listener = InstanceCollection.doc(this.state.instance.id).onSnapshot(
-      doc => {
-        this.setState({ ...this.state, instance: doc })
-      }
-    )
-    this.listeners.push(listener)
+    this.listeners.concat(listeners)
   }
 
-  registerTeamsListener = () => {
-    return new Promise((resolve, reject) => {
-      const listener = TeamsCollection.where(
-        "instanceId",
-        "==",
-        this.state.instance.id
-      ).onSnapshot(snapshot => {
-        const teams = {}
-        for (const change of snapshot.docChanges()) {
-          switch (change.type) {
-            case "added":
-            case "modifed":
-              teams[change.doc.id] = change.doc
-              break
-            default:
-              const newState = { ...this.state }
-              delete newState.teams[change.doc.id]
-              this.setState(newState)
-              break
-          }
-        }
-        if (Object.keys(teams).length) this.setState({ ...this.state, teams })
-        resolve()
+  handleInstanceSnapshot = snap => {
+    if (!snap.empty) {
+      this.setState({
+        ...this.state,
+        firebase: { ...this.state.firebase, instance: snap.docs[0] }
       })
-      this.listeners.push(listener)
-    })
+    }
   }
 
-  setParticipants = async () => {
-    const temp = {}
-    for (const team of Object.values(this.state.teams)) {
-      const participants = await team.ref.collection("participants").get()
-      for (const participant of participants.docs) {
-        temp[participant.id] = participant
+  handleFirestoreSnapshot = (key, snap) => {
+    const result = {}
+    for (const change of snap.docChanges()) {
+      switch (change.type) {
+        case "removed":
+          const newState = { ...this.state }
+          console.log(newState.firebase[key][change.doc.id])
+          delete newState.firebase[key][change.doc.id]
+          console.log(newState.firebase[key][change.doc.id])
+          this.setState(newState)
+          break
+        default:
+          result[change.doc.id] = change.doc
+          break
       }
-      this.setState({ ...this.state, participants: temp })
     }
-  }
-
-  registerPointsListener = () => {
-    return new Promise((resolve, reject) => {
-      const listener = PointsCollection.where(
-        "instanceId",
-        "==",
-        this.state.instance.id
-      ).onSnapshot(snapshot => {
-        const points = {}
-        for (const change of snapshot.docChanges()) {
-          switch (change.type) {
-            case "added":
-            case "modifed":
-              points[change.doc.id] = change.doc
-              break
-            default:
-              const newState = { ...this.state }
-              delete newState.points[change.doc.id]
-              this.setState(newState)
-              break
-          }
+    if (Object.keys(result).length) {
+      this.setState({
+        ...this.state,
+        firebase: {
+          ...this.state.firebase,
+          [key]: { ...this.state.firebase[key], ...result }
         }
-
-        if (Object.keys(points).length) this.setState({ ...this.state, points })
-
-        resolve()
       })
-      this.listeners.push(listener)
-    })
-  }
-
-  unregisterListeners = () => {
-    for (const listener of this.listeners) {
-      listener()
     }
   }
+
+  handleTeamsSnapshot = snap => this.handleFirestoreSnapshot("teams", snap)
+  handlePointsSnapshot = snap => this.handleFirestoreSnapshot("points", snap)
+  handleParticipantsSnapshot = snap =>
+    this.handleFirestoreSnapshot("participants", snap)
 
   render() {
-    return (
-      <GlobalContext.Provider value={this.state}>
+    if (this.state.isLoading) {
+      return (
         <div className="App">
-          <Content />
-          <Footer />
+          <Loader fullscreen />
         </div>
-      </GlobalContext.Provider>
-    )
+      )
+    } else {
+      return (
+        <Router>
+          <FirebaseContext.Provider value={this.state.firebase}>
+            <div className="App">
+              <Route path="/" exact={true} component={Client} />
+              <Route path="/admin" exact={true} component={Points} />
+              <Route path="/admin/participants" component={Participants} />
+            </div>
+          </FirebaseContext.Provider>
+        </Router>
+      )
+    }
   }
 }
 

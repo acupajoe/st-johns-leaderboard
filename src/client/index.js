@@ -1,11 +1,13 @@
 import React from "react"
 
-import Countdown from "./content/countdown"
-import SearchBar from "./content/searchBar"
-import TeamRanks from "./content/teamRanks"
-import StudentRanks from "./content/studentRanks"
-import Rules from "./content/rules"
-import ScavengerHunt from "./content/scavengerHunt"
+import Countdown from "./components/countdown"
+import SearchBar from "./components/searchBar"
+import TeamRanks from "./components/teamRanks"
+import StudentRanks from "./components/studentRanks"
+import Rules from "./components/rules"
+import ScavengerHunt from "./components/scavengerHunt"
+
+import "./styles/main.scss"
 
 const Content = () => {
   return (

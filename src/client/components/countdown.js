@@ -1,7 +1,7 @@
 import React from "react"
 import moment from "moment"
 
-import Timer from "../timer"
+import Timer from "../../timer"
 
 const toHHMMSS = str => {
   var sec_num = parseInt(str, 10)
