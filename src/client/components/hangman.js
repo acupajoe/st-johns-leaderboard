@@ -79,7 +79,7 @@ class Hangman extends React.Component {
       e.target.value = ""
     }
 
-    this.guess(e.target.value)
+    this.guess(e.target.value.toLowerCase())
     e.target.value = ""
 
     return false
