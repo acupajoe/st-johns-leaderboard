@@ -235,10 +235,68 @@ small {
   }
 }
 
+.hangman {
+  display: flex;
+  min-height: 400px;
+
+  .overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    background-color: $secondary-background-color;
+    padding: 25px;
+
+    h2 {
+      margin: 10px 0;
+    }
+
+    p {
+      margin: 5px 0;
+      padding: 0;
+    }
+    select {
+      margin: 15px 0;
+    }
+  }
+  .game {
+    display: flex;
+    flex-direction: row;
+    .guesses {
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          display: inline-block;
+          margin: 0 5px;
+          &:first-child {
+            margin-left: 0;
+          }
+          &.correct {
+            color: $highlight-color;
+          }
+        }
+      }
+    }
+
+    input[type="text"] {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      background: $secondary-background-color;
+      border: none;
+      border-bottom: 2px solid $primary-text-color;
+      padding: 5px;
+    }
+  }
+}
+
 footer {
   text-align: right;
+  font-size: 10px;
   a {
-    font-size: 10px;
     text-decoration: none;
   }
 }

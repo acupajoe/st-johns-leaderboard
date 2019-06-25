@@ -1,4 +1,5 @@
 import React from "react"
+import Hangman from "./hangman"
 
 const ScavengerHunt = () => {
   return (
@@ -211,6 +212,9 @@ const ScavengerHunt = () => {
           <p className="claimed">
             <small>Claimed by:</small>
           </p>
+        </li>
+        <li>
+          <Hangman />
         </li>
       </ol>
     </div>
