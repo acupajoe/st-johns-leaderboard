@@ -210,11 +210,41 @@ const ScavengerHunt = () => {
             </small>
           </p>
           <p className="claimed">
-            <small>Claimed by:</small>
+            <small>Claimed by: Annabelle, ?, ?</small>
           </p>
         </li>
         <li>
           <Hangman />
+        </li>
+        <li>
+          <p>
+            8 stand facing west
+            <br />
+            across, another, facing east
+            <br />
+            Find them near Clover Street.
+            <br />
+            <br />
+            <small>Bounty: [20, 15, 10]</small>
+          </p>
+          <p className="claimed">
+            <small>Claimed By: Annabelle, ?, ?</small>
+          </p>
+        </li>
+        <li>
+          <p>Bring this item tonight.</p>
+          <p>
+            I am small and found all around
+            <br />
+            in an office or on the ground.
+            <br />
+            Though I'm curved, <br />
+            I have two ends,
+            <br />I make papers become friends.
+            <br />
+            <br />
+            <small>Bounty: [20, 15, 10]</small>
+          </p>
         </li>
       </ol>
     </div>
