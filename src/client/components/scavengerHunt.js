@@ -210,7 +210,7 @@ const ScavengerHunt = () => {
             </small>
           </p>
           <p className="claimed">
-            <small>Claimed by: Annabelle, ?, ?</small>
+            <small>Claimed by: Annabelle</small>
           </p>
         </li>
         <li>
@@ -243,7 +243,7 @@ const ScavengerHunt = () => {
             <br />I make papers become friends.
             <br />
             <br />
-            <small>Bounty: [20, 15, 10]</small>
+            <small>Bounty: 20</small>
           </p>
         </li>
       </ol>
