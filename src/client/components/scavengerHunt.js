@@ -194,7 +194,7 @@ const ScavengerHunt = () => {
           </p>
         </li>
         <li>
-          <p>
+          <p className="strikethrough">
             Like mother and babe
             <br />
             so I am to bees
@@ -232,8 +232,8 @@ const ScavengerHunt = () => {
           </p>
         </li>
         <li>
-          <p>Bring this item tonight.</p>
-          <p>
+          <p className="strikethrough">Bring this item tonight.</p>
+          <p className="strikethrough">
             I am small and found all around
             <br />
             in an office or on the ground.
@@ -244,6 +244,29 @@ const ScavengerHunt = () => {
             <br />
             <br />
             <small>Bounty: 20</small>
+          </p>
+        </li>
+        <li>
+          <p>
+            Samuel Finley had a code,
+            <br />
+            now outdated, it was in vogue.
+            <br />
+            Bit and bah, dit and dah,
+            <br />
+            solve the riddle below.
+          </p>
+          <p>
+            --- -. / -.-. .-.. .. ..-. ..-. ... / .- -... --- ...- . --..-- /
+            .-- .. - .... / .-- .- - . .-. / -... . .-.. --- .-- .-.-.- / .-
+            .-.. .-.. / -.-. .- -. / ... . . / -- . / -... ..- - / -. --- -. . /
+            -.-. --- -- . / -. . .- .-. / -- . .-.-.- / .-- .... .- - / .- -- /
+            .. ..--..
+          </p>
+          <p>
+            <em>A computer will probably be helpful decoding this message.</em>
+            <br />
+            <small>Bounty: [30, 20, 15]</small>
           </p>
         </li>
       </ol>
