@@ -24,8 +24,7 @@ class StudentRanks extends React.Component {
     )
 
     for (const doc of participants) {
-      if (count > 5) break
-
+      if (count > 10) break
       const participant = doc.data()
       const teamId = doc.ref.parent.parent.id
       const team = this.context.teams[teamId].data()
@@ -49,7 +48,7 @@ class StudentRanks extends React.Component {
   render() {
     return (
       <div className="ranks student-ranks">
-        <h3>Top 5 Ranked Students</h3>
+        <h3>Top 10 Ranked Students</h3>
         <div className="teams">
           {!this.context.isLoading && this.renderStudents()}
           {this.context.isLoading && this.renderPlaceholders()}

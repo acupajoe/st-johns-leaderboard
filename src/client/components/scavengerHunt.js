@@ -247,7 +247,7 @@ const ScavengerHunt = () => {
           </p>
         </li>
         <li>
-          <p>
+          <p className="strikethrough">
             Samuel Finley had a code,
             <br />
             now outdated, it was in vogue.
@@ -256,7 +256,7 @@ const ScavengerHunt = () => {
             <br />
             solve the riddle below.
           </p>
-          <p>
+          <p className="strikethrough">
             --- -. / -.-. .-.. .. ..-. ..-. ... / .- -... --- ...- . --..-- /
             .-- .. - .... / .-- .- - . .-. / -... . .-.. --- .-- .-.-.- / .-
             .-.. .-.. / -.-. .- -. / ... . . / -- . / -... ..- - / -. --- -. . /
@@ -267,6 +267,9 @@ const ScavengerHunt = () => {
             <em>A computer will probably be helpful decoding this message.</em>
             <br />
             <small>Bounty: [30, 20, 15]</small>
+          </p>
+          <p className="claimed">
+            <small>Claimed By: Annabelle, Nathan, Mackenzie</small>
           </p>
         </li>
       </ol>
