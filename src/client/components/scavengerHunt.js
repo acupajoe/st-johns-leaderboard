@@ -272,6 +272,90 @@ const ScavengerHunt = () => {
             <small>Claimed By: Annabelle, Nathan, Mackenzie</small>
           </p>
         </li>
+        <li>
+          <p>
+            <em>Only two guesses per day allowed</em>
+          </p>
+          <p>
+            I’m a fellow, a merry fellow,
+            <br />
+            Old, Blue and some parts yellow,
+            <br />
+            my songs are stronger songs, for me, I am the master
+            <br />
+            None have caught me yet, after all, my feet are faster.
+            <br />
+            <br />
+            In the books I am found, but the movies forgot me,
+            <br />
+            Say my name, <br />
+            you’ll be right as rain
+            <br />
+            Merry and Pippin found me.
+            <br />
+            <br />
+            Who am I?
+          </p>
+          <p>
+            <small>Bounty: [15, 10, 8, 5--]</small>
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the clues from above as a key - What am I?
+            <br />
+            (#3:1:1 = “C”, #5:3:3 = “t”, #4:2:4-5 = “I n”)
+            <br />
+            <br />
+            #1:4:11#2:1:14#1:4:1x2#6:1:9-10#4:2:13-15
+            <br />
+          </p>
+          <p>
+            <small>Bounty: [15, 10, 8, 5--]</small>
+          </p>
+        </li>
+        <li>
+          <p>
+            2 points for every canned good brought on Wednesday
+            <br />
+            Maximum of 20 points per person
+            <br />
+            The team who brings the most canned goods will win an additional 10
+            points per teammate who brought cans with them.
+            <br />
+          </p>
+        </li>
+        <li>
+          <p>
+            Mr. Arlt was commissioned a mural for the Enterprise Post Office in
+            1941.
+            <br />
+            The Post Office was torn down in 1991.
+            <br />
+            The painting was preserved.
+            <br />
+            Take a picture in front of it.
+            <br />
+          </p>
+          <p>
+            <small>Bounty: [25, 15, 10, 8--]</small>
+          </p>
+        </li>
+        <li>
+          <p>
+            Computers send data all around
+            <br />
+            encoding and decoding the 64th base
+            <br />
+            it keeps symbols from being out of place.
+            <br />
+            <br />
+            RmVlZCBtZSBkYXRhLApGZWVkIG1lIGxpbmVzLApJJ20gYSB3cml0ZXIgZnJvbSBvbGQgdGltZXMuCgpDbGljayBhbmQgY2xhY2sKUmluZyBhbmQgZGluZwpUeXBpc3RzIHVzZWQgdG8gbWFrZSBtZSBzaW5nLgoKV2hhdCBhbSBJPwo=
+          </p>
+          <p>
+            <small>Bounty: [25, 15, 10, 8--]</small>
+          </p>
+        </li>
       </ol>
     </div>
   )
